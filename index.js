@@ -34,12 +34,13 @@ app.use(express.json());
 app.use("/auth", authRoutes);
 
 app.get("/", (req, res) => {
-  console.log("Hello World");
+  res.send("Hello World");
 });
 
 app.post("/newcustomer", async (req, res) => {
   let data = req.body;
 
+  console.log(data);
   let token = Math.floor(Math.random() * 100);
 
   let a = new Beneficiary({
@@ -106,10 +107,10 @@ app.post("/update", async (req, res) => {
 app.get("/getbeneficiary", async (req, res) => {
   try {
     let data = await Beneficiary.find({});
-    res.send(data)
+    res.send(data);
   } catch (e) {
     console.log(e);
-    res.send(e)
+    res.send(e);
   }
 });
 

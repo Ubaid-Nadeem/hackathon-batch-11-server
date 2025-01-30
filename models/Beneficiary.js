@@ -13,6 +13,8 @@ const beneficiarySchema = new Schema({
   token: Number,
   AssistanceStatus: { type: String, default: "In Progress" },
   date: { type: Date, default: Date.now() },
+},{
+  timestamps : true
 });
 
 const Beneficiary = mongoose.model("Beneficiarys", beneficiarySchema);
